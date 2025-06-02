@@ -25,7 +25,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(limiter)
 app.use(helmet());
 app.use(cors({
-  origin: ["http://localhost:8080","https://nodejs-exercises.onrender.com"]
+  origin: ["http://localhost:8080","https://nodejs-exercise-4.onrender.com"]
 }));
 app.use(logger);
 app.use(express.json());

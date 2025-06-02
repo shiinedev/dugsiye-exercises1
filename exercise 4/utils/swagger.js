@@ -1,0 +1,37 @@
+import swaggerJSDoc from 'swagger-jsdoc';
+import dotenv from 'dotenv'
+
+dotenv.config();
+
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Finance Track Api',
+      version: '1.0.0',
+      description: 'API documentation for our Finance Track backend'
+    },
+    servers: [
+      {
+        url: process.env.NODE_ENV == "development" ? 'http://localhost:8080' : ""
+      }
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+        }
+      }
+    },
+    security: [
+      {
+        bearerAuth: []
+      }
+    ]
+  },
+  apis: ['./routes/*.js']
+};
+
+export const swaggerSpec = swaggerJSDoc(options);

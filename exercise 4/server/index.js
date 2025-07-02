@@ -25,7 +25,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(limiter)
 app.use(helmet());
 app.use(cors({
-  origin: ["http://localhost:8080","https://finance-track-nf6s.onrender.com","http://localhost:5173"]
+  origin: ["http://localhost:8080","https://finance-track-nf6s.onrender.com","http://localhost:5173","https://finance-track-chi.vercel.app/"]
 }));
 app.use(logger);
 app.use(express.json());

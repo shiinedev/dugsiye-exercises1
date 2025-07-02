@@ -29,8 +29,6 @@ const router = express.Router();
  *                 type: string
  *               password:
  *                 type: string
- *               role:
- *                 type: string
  *                 enum: [user, admin]
  *               profile:
  *                 type: string 

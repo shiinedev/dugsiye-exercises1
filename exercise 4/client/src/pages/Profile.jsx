@@ -46,7 +46,7 @@ const Profile = () => {
 
   useEffect(()=>{
     if(data){
-      setUsername(data.username);
+      setUsername(data.name);
       setAvatarUrl(data.profile);
     }
   },[data])

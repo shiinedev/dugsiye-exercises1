@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
-import Register from "@/pages/register";
-import Profile from "@/pages/profile";
+import Register from "@/pages/Register";
+import Profile from "@/pages/Profile";
 import Dashboard from "@/pages/Dashboard";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminProtectedRoute from "./AdminProtectedRoute";

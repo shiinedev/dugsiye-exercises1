@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema({
-    name:String,
+    username:String,
     email:{type:String, unique:true},
     password:String,
     role:{
@@ -10,7 +10,10 @@ const userSchema = new mongoose.Schema({
         enum:["user","admin"],
         default:"user"
     },
-    profile:String
+    profile:{
+      type:String,
+      default:""
+    }
 })
 
 userSchema.pre("save", async function (next) {

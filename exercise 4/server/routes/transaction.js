@@ -97,7 +97,7 @@ router.get("/", protect , getMyTransactions)
  *         description: No transactions found
  */
 
- router.get("/monthly-summary", protect , authorize('admin'),monthlySummary)
+ router.get("/monthly-summary", protect ,monthlySummary)
 
 /**
  * @swagger

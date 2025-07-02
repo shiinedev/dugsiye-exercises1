@@ -3,14 +3,14 @@ import { generateToken } from '../utils/generateToken.js';
 
 export const register = async(req, res,next) =>{
 
-    let {name,email,password,role,profile} = req.body;
+    let {username,email,password,role,profile} = req.body;
     
     try {
         email = email.toLowerCase();
         const exist = await User.findOne({ email })
         if(exist) return res.status(400).json({message:"email already exists"});
 
-        const user = await User.create({name,email,password,role,profile});
+        const user = await User.create({username,email,password,role,profile});
 
         res.status(201).json({user})
     } catch (error) {
@@ -27,10 +27,13 @@ export const login = async(req, res, next) =>{
         email = email.toLowerCase();
 
         const user = await User.findOne({email});
-        if(!user || !(await user.comparePassword(password))) return res.status(404).json({message:"email or password are incorrect"});
+        if(!user || !(await user.comparePassword(password))) return res.status(404).json({message:"Invalid Credential"});
 
         const token = generateToken(user._id);
-        res.json({token})
+
+        user.password = undefined;
+
+        res.json({token,user})
 
 
     } catch (error) {

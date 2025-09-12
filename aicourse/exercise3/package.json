@@ -1,0 +1,17 @@
+{
+  "name": "exercise3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "openai": "^5.20.1"
+  },
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

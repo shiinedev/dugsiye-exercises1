@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model users{
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  email String @unique
+  age   Int
+  favoriteGenre String
+}
+
+model movies{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  year String
+  genre String
+  rating reviews[] 
+  description String
+  director String
+
+}
+
+model reviews{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  movie movies @relation(fields: [movieId],references: [id])
+  movieId String @map("movies") @db.ObjectId
+  comment String
+  rating Int
+  date String 
+}

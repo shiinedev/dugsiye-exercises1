@@ -1,0 +1,17 @@
+{
+  "name": "aicourse-exercise6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "AI Course Exercise 6 - Multi-modal AI Assistant",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "openai": "^5.20.1"
+  }
+}
